@@ -20,11 +20,6 @@ ppm::ppm(int w, int h) {
     for(int i=0; i<h; i++) {
         pixelData[i].resize(w);
     }
-    
-    setPixel(3,3,color(MAX_VALUE,0,0));
-    setPixel(3,4,color(MAX_VALUE,0,0));
-    setPixel(3,5,color(MAX_VALUE,0,0));
-    setPixel(3,6,color(MAX_VALUE,0,0));
 }
 
 void
