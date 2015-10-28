@@ -7,3 +7,11 @@
 //
 
 #include "polygon.h"
+
+polygon::polygon() {
+    
+}
+void
+polygon::addVertex(Vertex v) {
+    vertices.push_back(v);
+}

@@ -7,3 +7,15 @@
 //
 
 #include "item.h"
+
+
+item::item() {
+    diffuse = color(0,0,0);
+    specularHighlight = color(0,0,0);
+    phongConstant = 4;
+}
+
+Vertex
+item::impactedBy(Vector v) {
+    return Vertex(NULL, NULL, NULL);
+}

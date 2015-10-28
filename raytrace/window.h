@@ -10,8 +10,26 @@
 #define __raytrace__window__
 
 #include <stdio.h>
+#include "Vertex.h"
+#include "Vector.h"
 
-#define WINDOW_WIDTH 1000
-#define WINDOW_HEIGHT 1000
+#define WINDOW_WIDTH 100
+#define WINDOW_HEIGHT 100
+
+class window {
+private:
+    Vertex cameraLookAt;
+    Vertex cameraLookFrom;
+    Vector cameraLookUp;
+    float fieldOfView;
+public:
+    window();
+    window( Vertex, Vertex );
+    
+    void setLookAt( Vertex );
+    void setLookFrom( Vertex );
+    void setLookUp( Vector );
+    void setFieldOfView( float );
+};
 
 #endif /* defined(__raytrace__window__) */

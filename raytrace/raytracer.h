@@ -10,5 +10,16 @@
 #define __raytrace__raytracer__
 
 #include <stdio.h>
+#include "scene.h"
+#include "window.h"
+#include "ppm.h"
+
+class raytracer {
+private:
+    ppm image;
+public:
+    raytracer();
+    ppm render(scene, window);
+};
 
 #endif /* defined(__raytrace__raytracer__) */

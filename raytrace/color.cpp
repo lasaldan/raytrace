@@ -7,9 +7,23 @@
 //
 
 #include "color.h"
+using namespace std;
+
+color::color() {
+    color(0,0,0);
+}
 
 color::color(float r, float g, float b) {
     red = r;
     green = g;
     blue = b;
+}
+
+string
+color::toByte() {
+    stringstream colordata;
+    colordata << hex << red << " ";
+    colordata << hex << green << " ";
+    colordata << hex << blue << "  ";
+    return colordata.str();
 }

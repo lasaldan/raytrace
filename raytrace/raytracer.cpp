@@ -7,3 +7,12 @@
 //
 
 #include "raytracer.h"
+
+raytracer::raytracer() {
+    image = ppm(WINDOW_WIDTH, WINDOW_HEIGHT);
+}
+
+ppm
+raytracer::render(scene s, window w) {
+    return image;
+}

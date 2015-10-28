@@ -7,3 +7,33 @@
 //
 
 #include "window.h"
+
+
+window::window() {
+    
+}
+
+window::window( Vertex lookFrom, Vertex lookAt ) {
+    cameraLookAt = lookAt;
+    cameraLookFrom = lookFrom;
+}
+
+void
+window::setLookAt( Vertex v ) {
+    cameraLookAt = v;
+}
+
+void
+window::setLookFrom( Vertex v ) {
+    cameraLookFrom = v;
+}
+
+void
+window::setLookUp( Vector v ) {
+    cameraLookUp = v;
+}
+
+void
+window::setFieldOfView( float f ) {
+    fieldOfView = f;
+}

@@ -13,4 +13,21 @@
 #define SCENELL 1
 #define CUSTOM 2
 
+#include <fstream>
+#include <string>
+#include <iostream>
+#include "scene.h"
+#include "window.h"
+#include "sphere.h"
+#include "polygon.h"
+#include "light.h"
+#include "Vector.h"
+#include "raytracer.h"
+#include "ppm.h"
+
+scene scene;
+window window;
+raytracer raytracer;
+ppm image;
+
 #endif

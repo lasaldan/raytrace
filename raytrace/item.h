@@ -12,12 +12,16 @@
 #include <stdio.h>
 #include "Vertex.h"
 #include "Vector.h"
+#include "color.h"
 
 
 class item {
 public:
     item();
     Vertex impactedBy(Vector);
+    color diffuse;
+    color specularHighlight;
+    int phongConstant;
 private:
 };
 

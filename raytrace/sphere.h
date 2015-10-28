@@ -11,14 +11,15 @@
 
 #include <stdio.h>
 #include "Vertex.h"
+#include "item.h"
 
-class sphere {
+class sphere : public item {
 public:
     sphere();
+    sphere(Vertex, float);
 private:
     Vertex center;
     float radius;
-    
 };
 
 #endif /* defined(__raytrace__sphere__) */

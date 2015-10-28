@@ -10,13 +10,19 @@
 #define __raytrace__color__
 
 #include <stdio.h>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
 
 class color {
 public:
     float red;
     float green;
     float blue;
+    color();
     color(float, float, float);
+    std::string toByte();
 };
 
 #endif /* defined(__raytrace__color__) */
