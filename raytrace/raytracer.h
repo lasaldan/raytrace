@@ -12,11 +12,17 @@
 #include <stdio.h>
 #include "scene.h"
 #include "window.h"
+#include "sphere.h"
 #include "ppm.h"
+#include "math.h"
+
+#define PI 3.14159265358979
 
 class raytracer {
 private:
     ppm image;
+    float pixelWidth;
+    float calculatePixelWidth( window );
 public:
     raytracer();
     ppm render(scene, window);

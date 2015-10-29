@@ -18,7 +18,7 @@
 class item {
 public:
     item();
-    Vertex impactedBy(Vector);
+    //virtual Vertex impactedBy(Vector, Vertex);
     color diffuse;
     color specularHighlight;
     int phongConstant;

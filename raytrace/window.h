@@ -13,8 +13,8 @@
 #include "Vertex.h"
 #include "Vector.h"
 
-#define WINDOW_WIDTH 100
-#define WINDOW_HEIGHT 100
+#define WINDOW_WIDTH 1000
+#define WINDOW_HEIGHT 1000
 
 class window {
 private:
@@ -30,6 +30,9 @@ public:
     void setLookFrom( Vertex );
     void setLookUp( Vector );
     void setFieldOfView( float );
+    
+    Vertex getLookFrom();
+    float getFieldOfView();
 };
 
 #endif /* defined(__raytrace__window__) */

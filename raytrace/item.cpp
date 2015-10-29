@@ -14,8 +14,3 @@ item::item() {
     specularHighlight = color(0,0,0);
     phongConstant = 4;
 }
-
-Vertex
-item::impactedBy(Vector v) {
-    return Vertex(NULL, NULL, NULL);
-}

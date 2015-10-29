@@ -14,17 +14,21 @@
 #include "color.h"
 #include "item.h"
 #include "light.h"
+#include "polygon.h"
+#include "sphere.h"
 
 class scene {
 public:
     color backgroundColor;
     color ambientLightColor;
-    std::vector<item> items;
+    std::vector<sphere> spheres;
+    std::vector<polygon> polygons;
     std::vector<light> lights;
     scene();
     void setBackgroundColor(color);
     void setAmbientLightColor(color);
-    void addItem(item);
+    void addSphere(sphere);
+    void addPolygon(polygon);
     void addLight(light);
 };
 

@@ -24,8 +24,13 @@ scene::setBackgroundColor(color c) {
 }
 
 void
-scene::addItem(item i) {
-    items.push_back(i);
+scene::addPolygon(polygon p) {
+    polygons.push_back(p);
+}
+
+void
+scene::addSphere(sphere s) {
+    spheres.push_back(s);
 }
 
 void

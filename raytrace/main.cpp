@@ -47,9 +47,9 @@ int main(int argc, const char * argv[]) {
             p2.addVertex( Vertex(-1, .5, 0) );
             p2.addVertex( Vertex(0, -.5, -.5) );
             
-            scene.addItem( s );
-            scene.addItem( p1 );
-            scene.addItem( p2 );
+            scene.addSphere( s );
+            scene.addPolygon( p1 );
+            scene.addPolygon( p2 );
             
             scene.addLight( light( Vector(0,1,0), color(1,1,1) ) );
             

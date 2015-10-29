@@ -17,6 +17,7 @@ class sphere : public item {
 public:
     sphere();
     sphere(Vertex, float);
+    Vertex impactedBy(Vector d, Vertex o);
 private:
     Vertex center;
     float radius;

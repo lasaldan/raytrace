@@ -37,3 +37,13 @@ void
 window::setFieldOfView( float f ) {
     fieldOfView = f;
 }
+
+Vertex
+window::getLookFrom() {
+    return cameraLookFrom;
+}
+
+float
+window::getFieldOfView() {
+    return fieldOfView;
+}
