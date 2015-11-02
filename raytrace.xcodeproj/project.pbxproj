@@ -19,6 +19,7 @@
 		656965421BE085BE0035BE0C /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 656965401BE085BE0035BE0C /* color.cpp */; };
 		656965451BE0880B0035BE0C /* light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 656965431BE0880B0035BE0C /* light.cpp */; };
 		656965481BE09EEA0035BE0C /* ppm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 656965461BE09EEA0035BE0C /* ppm.cpp */; };
+		6569654C1BE7DE690035BE0C /* collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6569654A1BE7DE690035BE0C /* collision.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,8 @@
 		656965461BE09EEA0035BE0C /* ppm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ppm.cpp; sourceTree = "<group>"; };
 		656965471BE09EEA0035BE0C /* ppm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ppm.h; sourceTree = "<group>"; };
 		656965491BE0ADA90035BE0C /* renders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = renders; sourceTree = "<group>"; };
+		6569654A1BE7DE690035BE0C /* collision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collision.cpp; sourceTree = "<group>"; };
+		6569654B1BE7DE690035BE0C /* collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collision.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				6569651E1BE07A6F0035BE0C /* main.cpp */,
 				656965441BE0880B0035BE0C /* light.h */,
 				656965431BE0880B0035BE0C /* light.cpp */,
+				6569654B1BE7DE690035BE0C /* collision.h */,
+				6569654A1BE7DE690035BE0C /* collision.cpp */,
 				656965321BE0832D0035BE0C /* raytracer.h */,
 				656965311BE0832D0035BE0C /* raytracer.cpp */,
 				656965471BE09EEA0035BE0C /* ppm.h */,
@@ -187,6 +192,7 @@
 				6569653F1BE084FD0035BE0C /* Vertex.cpp in Sources */,
 				6569651F1BE07A6F0035BE0C /* main.cpp in Sources */,
 				656965421BE085BE0035BE0C /* color.cpp in Sources */,
+				6569654C1BE7DE690035BE0C /* collision.cpp in Sources */,
 				6569652C1BE0804F0035BE0C /* polygon.cpp in Sources */,
 				656965361BE083720035BE0C /* scene.cpp in Sources */,
 				6569653E1BE084FD0035BE0C /* Vector.cpp in Sources */,

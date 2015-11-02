@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
         case SCENELL: {
             std::cout << "Setting up Scenell Scene..." << std::endl;
             
-            scene.setBackgroundColor( color(.2,.2,.2) );
+            scene.setBackgroundColor( color(.2*255,.2*255,.2*255) );
             scene.setAmbientLightColor( color(0,0,0) );
             
             sphere s = sphere( Vertex(0, .3 ,0), .2);
@@ -51,7 +51,7 @@ int main(int argc, const char * argv[]) {
             scene.addPolygon( p1 );
             scene.addPolygon( p2 );
             
-            scene.addLight( light( Vector(0,1,0), color(1,1,1) ) );
+            scene.addLight( light( Vector(0,1,0), color(255,255,255) ) );
             
             window.setFieldOfView( 55 );
             window.setLookAt( Vertex(0,0,0) );

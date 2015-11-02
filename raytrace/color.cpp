@@ -24,6 +24,6 @@ color::toByte() {
     stringstream colordata;
     colordata << hex << red << " ";
     colordata << hex << green << " ";
-    colordata << hex << blue << "  ";
+    colordata << hex << blue << "";
     return colordata.str();
 }

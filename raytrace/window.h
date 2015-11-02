@@ -13,8 +13,8 @@
 #include "Vertex.h"
 #include "Vector.h"
 
-#define WINDOW_WIDTH 1000
-#define WINDOW_HEIGHT 1000
+#define WINDOW_WIDTH 500
+#define WINDOW_HEIGHT 500
 
 class window {
 private:

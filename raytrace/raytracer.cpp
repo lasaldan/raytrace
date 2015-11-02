@@ -7,6 +7,7 @@
 //
 
 #include "raytracer.h"
+using namespace std;
 
 raytracer::raytracer() {
     image = ppm(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -23,7 +24,7 @@ ppm
 raytracer::render(scene s, window w) {
     
     float viewDistance = w.getLookFrom().getZ();
-    float viewportWidth = viewDistance * tan(w.getFieldOfView() * PI / 180) * 2;
+    float viewportWidth = viewDistance * tan((w.getFieldOfView()/2) * PI / 180) * 2;
     pixelWidth = viewportWidth / WINDOW_WIDTH;
     
     Vertex origin = w.getLookFrom();
@@ -37,9 +38,10 @@ raytracer::render(scene s, window w) {
         for(float col=0; col < WINDOW_WIDTH; col++) {
             float destinationX = (-WINDOW_WIDTH / 2 + col) * pixelWidth + (pixelWidth / 2);
             
-            Vector direction = Vector::Normalize( Vector(destinationX, destinationY, 0) );
+            Vector direction = Vector::Normalize( Vector(destinationX, destinationY, -1.2) );
             
             for(int i = 0; i < s.spheres.size(); i++) {
+                //cout << "(" << destinationX << "," << destinationY << ",1), ";
                 
                 Vertex impactPoint = s.spheres[i].impactedBy(direction, origin);
                 
@@ -50,10 +52,9 @@ raytracer::render(scene s, window w) {
                 }
                 else {
                     
-                    image.setPixel(row,col,color(255,255,255));
+                    image.setPixel(row,col,color(255,255,0));
                 }
             }
-            
         }
     }
     

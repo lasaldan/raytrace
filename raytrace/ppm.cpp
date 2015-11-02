@@ -42,9 +42,9 @@ ppm::toString() {
     
     for(int row=0; row<imageHeight; row++) {
         for(int col=0; col<imageWidth; col++) {
-            filedata << pixelData[row][col].toByte() << " ";
+            filedata << pixelData[row][col].toByte() << " \n";
         }
-        filedata << "\n";
+        filedata << " \n";
     }
     
     return filedata.str();
