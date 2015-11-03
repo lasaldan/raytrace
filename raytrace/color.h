@@ -23,6 +23,6 @@ public:
     color();
     color(float, float, float);
     std::string toByte();
+    bool operator==(const color& rhs) const;
 };
-
 #endif /* defined(__raytrace__color__) */

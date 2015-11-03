@@ -14,3 +14,8 @@ item::item() {
     specularHighlight = color(0,0,0);
     phongConstant = 4;
 }
+
+Vertex
+item::noImpact() {
+    return Vertex(NULL, NULL, NULL);
+}

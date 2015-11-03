@@ -37,37 +37,32 @@ raytracer::render(scene s, window w) {
             
             Vector direction = Vector::Normalize( Vector(destinationX, destinationY, -origin.getZ()) );
             
+            color pixelColor = s.backgroundColor;
+            
+            for(int i = 0; i < s.polygons.size(); i++) {
+                Vertex impactPoint = s.polygons[i].getImpactLocation(direction, origin);
+                
+                if( impactPoint.x == 0 && impactPoint.y == 0 && impactPoint.z == 0)
+                    continue;
+                
+                pixelColor = color(255,0,0);
+                  
+            }
+            
             for(int i = 0; i < s.spheres.size(); i++) {
                 //cout << "(" << destinationX << "," << destinationY << ",1), ";
                 
                 Vertex impactPoint = s.spheres[i].getImpactLocation(direction, origin);
                 
-                if( impactPoint.getZ() == -1 ) {
-                    
-                    image.setPixel(row,col,s.backgroundColor);
-                    
-                }
-                else {
-                    
-                    image.setPixel(row,col,color(255,255,0));
-                }
+                if( impactPoint.x == 0 && impactPoint.y == 0 && impactPoint.z == 0)
+                    continue;
+                
+                pixelColor = s.spheres[i].diffuse;
+                
             }
             
-            for(int i = 0; i < s.polygons.size(); i++) {
-                s.polygons[i].getImpactLocation(direction, origin);
-            }
+            image.setPixel(row,col, pixelColor);
             
-            /*
-            if( impactPoint.getZ() == -1 ) {
-                
-                image.setPixel(row,col,s.backgroundColor);
-                
-            }
-            else {
-                
-                image.setPixel(row,col,color(255,255,0));
-            }
-             */
         }
     }
     

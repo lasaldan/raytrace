@@ -19,6 +19,11 @@ color::color(float r, float g, float b) {
     blue = b;
 }
 
+bool
+color::operator==(const color& other) const {
+    return other.red == red && other.blue == blue && other.green == green;
+}
+
 string
 color::toByte() {
     stringstream colordata;

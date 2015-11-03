@@ -24,10 +24,6 @@ polygon::addVertex(Vertex v) {
     }
 }
 
-Vertex noImpact() {
-    return Vertex(NULL, NULL, NULL);
-}
-
 Vertex
 polygon::getPlaneImpactLocation(Vector& rd, Vertex& ro) {
     
@@ -71,9 +67,9 @@ polygon::getImpactLocation(Vector rd, Vertex ro) {
     
     // Determine highest magnitude of normal for projection
     int majorAxis = 0;
-    float absx = (normal.x > 0) ? normal.x : -normal.x;
-    float absy = (normal.y > 0) ? normal.y : -normal.y;
-    float absz = (normal.z > 0) ? normal.z : -normal.z;
+    //float absx = (normal.x > 0) ? normal.x : -normal.x;
+    //float absy = (normal.y > 0) ? normal.y : -normal.y;
+    //float absz = (normal.z > 0) ? normal.z : -normal.z;
     
     Vertex pt1 = vertices[0];
     Vertex pt2 = vertices[1];
@@ -106,64 +102,34 @@ polygon::getImpactLocation(Vector rd, Vertex ro) {
     
     // Set numCrossings to 0 to keep track of how many edges are crossed
     int numCrossings = 0;
-    
-    //If v0’ < 0, set signHolder = -1, otherwise set signHolder = 1
-    int signHolder = -1;
+    int signHolder = 1;
     int nextSignHolder = -1;
     
-    if(pt1.x >= 0)
-        signHolder = 1;
-    
-    /*
-    
-    // Both points positive X, one above and one below axis
-    // Points 1,2
-    if((((pt1.y > 0 && pt2.y < 0) || (pt2.y > 0 && pt1.y < 0)) && pt1.x > 0 && pt2.x > 0))
-        numCrossings ++;
-    
-    // Points 2,3
-    if((((pt2.y > 0 && pt3.y < 0) || (pt3.y > 0 && pt2.y < 0)) && pt2.x > 0 && pt3.x > 0))
-        numCrossings ++;
-    
-    // Points 3,1
-    if((((pt1.y > 0 && pt3.y < 0) || (pt3.y > 0 && pt1.y < 0)) && pt1.x > 0 && pt3.x > 0))
-        numCrossings ++;
-    
-    
-    // Points have different signed X values, but still cross the x axis
-    //if(pt1.y > 0 && pt2.y < 0 && pt1.x > 0 && pt2.x < 0)
-     */
+    if(pt1.y < 0)
+        signHolder = -1;
+
     for(int i = 0; i < 3; i++) {
-        if(i == 0) {
-            Vertex* current = &pt1;
-            Vertex* next = &pt2;
-        }
-        if(i == 1) {
-            Vertex* current = &pt2;
-            Vertex* next = &pt3;
-        }
-        if(i == 2) {
-            Vertex* current = &pt3;
-            Vertex* next = &pt1;
-        }
+        Vertex* current; Vertex* next;
+        if(i == 0) { current = &pt1; next = &pt2; } else
+        if(i == 1) { current = &pt2; next = &pt3; } else
+                   { current = &pt3; next = &pt1; }
         
-        if(current->x )
-
-
+        if(current->y < 0) nextSignHolder = -1; else nextSignHolder = 1;
+        
+        if(signHolder != nextSignHolder) {
+            if(current->x > 0 && next->x > 0)
+                numCrossings++;
+            else if( current->x > 0 || next->x > 0) {
+                float crossPoint = (current->x - next->x * (next->x - current->x) / (next->y - current->y));
+                if( crossPoint > 0 )
+                    numCrossings++;
+            }
+            signHolder = nextSignHolder;
+        }
     }
     
-    return impact;
-
+    if(numCrossings % 2 == 1)
+        return impact;
     
-    /*
-     
-     compute vd = pn · rd
-     if vd ≥ 0 and 1 sided plane then return
-     if vd = 0 then return	(ray parallel to plane)
-     compute vo = -(pn · ro + d)
-     compute t = vo / vd
-     if t < 0 return
-     if vd > 0 reverse the plane’s normal
-     return r = (xo + xdt, yo + ydt, zo + zdt)
-     */
+    return noImpact();
 }

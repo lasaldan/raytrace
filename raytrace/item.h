@@ -22,6 +22,7 @@ public:
     color diffuse;
     color specularHighlight;
     int phongConstant;
+    Vertex noImpact();
 private:
 };
 

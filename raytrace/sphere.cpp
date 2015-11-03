@@ -32,12 +32,12 @@ sphere::getImpactLocation(Vector d, Vertex o) {
     
     if(D <= 0) {
         // missed the sphere
-        return Vertex(1, 1, -1);
+        return noImpact();
     }
     else {
         // hit the sphere - calculate hit point
         //float A = d.x*d.x + d.y*d.y + d.z*d.z;
 
-        return Vertex();
+        return Vertex(1,1,1);
     }
 }
