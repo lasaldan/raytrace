@@ -30,6 +30,10 @@ public:
     static Vector Minus(Vector, Vector);
     static Vector Normalize(Vector);
     
+    static float Dot(Vector, Vector);
+    
+    float operator [](int i) const;
+    float & operator [](int i);
 };
 
 #endif /* defined(__wizards_court__Vector__) */

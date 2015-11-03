@@ -30,6 +30,9 @@ public:
     float getX();
     float getY();
     float getZ();
+    
+    float operator [](int i) const;
+    float & operator [](int i);
 };
 
 #endif

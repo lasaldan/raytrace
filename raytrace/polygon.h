@@ -11,14 +11,19 @@
 
 #include <stdio.h>
 #include <vector>
+#include "Vector.h"
 #include "Vertex.h"
 #include "item.h"
 
 class polygon : public item {
+private:
+    Vector normal;
 public:
     polygon();
     void addVertex(Vertex);
     std::vector<Vertex> vertices;
+    Vertex getImpactLocation (Vector d, Vertex o);
+    Vertex getPlaneImpactLocation(Vector&, Vertex&);
 };
 
 #endif /* defined(__raytrace__polygon__) */

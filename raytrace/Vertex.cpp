@@ -53,3 +53,20 @@ string Vertex::print() {
     ss << "Ver: [" << x << "," << y << "," << z << "]";
     return ss.str();
 }
+
+float Vertex::operator [](int i) const {
+    if(i == 0)
+        return x;
+    if(i == 1)
+        return y;
+    else
+        return z;
+}
+float & Vertex::operator [](int i) {
+    if(i == 0)
+        return x;
+    if(i == 1)
+        return y;
+    else
+        return z;
+}

@@ -29,21 +29,18 @@ raytracer::render(scene s, window w) {
     
     Vertex origin = w.getLookFrom();
     
-    // assuming square image
-    //float cornerPixelDistance = (WINDOW_WIDTH / 2) * pixelWidth - (pixelWidth / 2);
-    
     for(float row=0; row < WINDOW_HEIGHT; row++) {
         float destinationY = (WINDOW_HEIGHT / 2 - row) * pixelWidth - (pixelWidth / 2);
         
         for(float col=0; col < WINDOW_WIDTH; col++) {
             float destinationX = (-WINDOW_WIDTH / 2 + col) * pixelWidth + (pixelWidth / 2);
             
-            Vector direction = Vector::Normalize( Vector(destinationX, destinationY, -1.2) );
+            Vector direction = Vector::Normalize( Vector(destinationX, destinationY, -origin.getZ()) );
             
             for(int i = 0; i < s.spheres.size(); i++) {
                 //cout << "(" << destinationX << "," << destinationY << ",1), ";
                 
-                Vertex impactPoint = s.spheres[i].impactedBy(direction, origin);
+                Vertex impactPoint = s.spheres[i].getImpactLocation(direction, origin);
                 
                 if( impactPoint.getZ() == -1 ) {
                     
@@ -55,6 +52,22 @@ raytracer::render(scene s, window w) {
                     image.setPixel(row,col,color(255,255,0));
                 }
             }
+            
+            for(int i = 0; i < s.polygons.size(); i++) {
+                s.polygons[i].getImpactLocation(direction, origin);
+            }
+            
+            /*
+            if( impactPoint.getZ() == -1 ) {
+                
+                image.setPixel(row,col,s.backgroundColor);
+                
+            }
+            else {
+                
+                image.setPixel(row,col,color(255,255,0));
+            }
+             */
         }
     }
     
