@@ -88,17 +88,17 @@ polygon::getImpactLocation(Vector rd, Vertex ro) {
     pt3[majorAxis] = 0;
     
     // Translate polygon points so the impact is at the origin
-    pt1.x = pt1.x + impact.x;
-    pt1.y = pt1.y + impact.y;
-    pt1.z = pt1.z + impact.z;
+    pt1.x = pt1.x + -impact.x;
+    pt1.y = pt1.y + -impact.y;
+    pt1.z = pt1.z + -impact.z;
+        
+    pt2.x = pt2.x + -impact.x;
+    pt2.y = pt2.y + -impact.y;
+    pt2.z = pt2.z + -impact.z;
     
-    pt2.x = pt2.x + impact.x;
-    pt2.y = pt2.y + impact.y;
-    pt2.z = pt2.z + impact.z;
-    
-    pt3.x = pt3.x + impact.x;
-    pt3.y = pt3.y + impact.y;
-    pt3.z = pt3.z + impact.z;
+    pt3.x = pt3.x + -impact.x;
+    pt3.y = pt3.y + -impact.y;
+    pt3.z = pt3.z + -impact.z;
     
     // Set numCrossings to 0 to keep track of how many edges are crossed
     int numCrossings = 0;
@@ -114,15 +114,17 @@ polygon::getImpactLocation(Vector rd, Vertex ro) {
         if(i == 1) { current = &pt2; next = &pt3; } else
                    { current = &pt3; next = &pt1; }
         
-        if(current->y < 0) nextSignHolder = -1; else nextSignHolder = 1;
+        if(next->y < 0) nextSignHolder = -1; else nextSignHolder = 1;
         
         if(signHolder != nextSignHolder) {
-            if(current->x > 0 && next->x > 0)
+            if(current->x > 0 && next->x > 0){
                 numCrossings++;
+            }
             else if( current->x > 0 || next->x > 0) {
-                float crossPoint = (current->x - next->x * (next->x - current->x) / (next->y - current->y));
-                if( crossPoint > 0 )
+                float crossPoint = (current->x - current->y * (next->x - current->x) / (next->y - current->y));
+                if( crossPoint > 0 ){
                     numCrossings++;
+                }
             }
             signHolder = nextSignHolder;
         }
